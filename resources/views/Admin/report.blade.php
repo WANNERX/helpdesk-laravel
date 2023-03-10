@@ -12,32 +12,25 @@
     <table class="table table-dark table-bordered">
         <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">ลำดับ</th>
+              <th scope="col">ชื่อ</th>
+              <th scope="col">อีเมล</th>
+              <th scope="col">วันที่เป็นสมาชิก</th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
+            @php($counter = ($dataUser->currentPage() - 1) * $dataUser->perPage())
+            @foreach ($dataUser as $value)
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <th scope="row">{{ ++$counter }}</th>
+              <td>{{$value->name}}</td>
+              <td>{{$value->email}}</td>
+              <td>{{$value->created_at}}</td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            @endforeach
           </tbody>
     </table>
+    {{ $dataUser->links() }}
 </body>
 </html>
 @include('../Admin/init/footer')
