@@ -45,8 +45,15 @@ class AuthController extends Controller
                 'message' => 'Invalid credentials'
             ], 401);
         }
+        else{
+            $status = 'Is Login Successful';
+            return view('welcome')->with('status', $status);
+        }
+        // return redirect()->route('dashboard');
+        // return response()->json([
+        //     'message' => 'Is Login Successful'
+        // ], 200);
 
-        return redirect()->route('dashboard');
     }
 
     // public function login(Request $request)
@@ -82,6 +89,6 @@ class AuthController extends Controller
     // }
 
     public function loginPage(){
-        return view('auth/login');
+        return view('auth.login');
     }
 }

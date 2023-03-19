@@ -8,5 +8,9 @@
 </head>
 <body>
     <H1>HELLO WORLD</H1>
+    {{ $status }}
+    <br>
+    <p>สวัสดีคุณ {{ Auth::user()->name }} </p>
+
 </body>
 </html>

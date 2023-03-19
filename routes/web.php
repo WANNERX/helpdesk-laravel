@@ -30,3 +30,7 @@ Route::middleware([
 });
 
 Route::get('/login', [AuthController::class, 'loginPage'])->name('loginPage');
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware('web');
